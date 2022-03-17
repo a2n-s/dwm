@@ -3,7 +3,7 @@ pkgname=dwm-a2ns-git
 pkgver=5.0.r.
 pkgrel=1
 epoch=
-pkgdesc="A heavily patched build of dwm."
+pkgdesc="A patched build of dwm."
 arch=(x86_64)
 url="https://github.com/a2n-s/dwm.git"
 license=('GNU')
@@ -38,6 +38,7 @@ package() {
     cd dwm
     mkdir -p ${pkgdir}/opt/${pkgname}
     cp -rf * ${pkgdir}/opt/${pkgname}
+    cp -rf dwm.desktop ${pkgdir}/usr/share/xsessions/dwm.desktop
     make PREFIX=/usr DESTDIR="${pkgdir}" install
     install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
     install -Dm644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
